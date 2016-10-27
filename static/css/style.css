@@ -1,0 +1,118 @@
+.logo p {
+    font-size: 60px;
+    padding-left: 5%;
+    color: white;
+    margin: 2%;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.user a {
+  color: pink;
+}
+
+.user span {
+  color: white;
+  text-align: center;
+}
+
+.landing_page .container {
+  position: fixed;
+  min-width: 100vw;
+  height:100vh;
+  background: url("../images/cover-camera2.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.landing_page .content {
+  padding: 10px 30px 20px 70px;
+  background-color: rgba(255,255,255, 0.55);
+  width: 100%;
+  max-width: 100rem;
+  margin-left: 0;
+}
+
+.app .container {
+  width: 100%;
+  max-width: 100rem;
+  height: 200px;
+  background-image: url("../images/cover-camera2.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.app .content {
+  width: 100%;
+  max-width: 100rem;
+  margin: 5%;
+}
+
+.user {
+  padding-top: 20px;
+}
+
+.info-small {
+  font-size: 0.8em;
+}
+
+img.profile {
+  float: left;
+}
+.icon-xs {
+  width: 1.5em;
+}
+.icon-small {
+  width: 2.5em;
+}
+.icon-medium {
+  width: 3.5em;
+}
+.icon-large {
+  width: 4.5em;
+}
+.icon-xl {
+  width: 5.5em;
+}
+
+.app div.item {
+  margin-top: 15px;
+}
+
+.app .item img.gift-image {
+  float: left;
+  padding-right: 10px;
+}
+
+.app .item img.custom-image {
+  float: left;
+  padding-right: 10px;
+}
+
+.app .item h4.name {
+  margin: 0;
+}
+
+.app .item p.url {
+  margin: 0;
+  font-size: 80%;
+}
+
+.app .item a.delete {
+  font-size: 70%;
+}
+
+.app .item p.price_range {
+  margin: 0;
+  font-size: 80%;
+}
+
+.app .item p.description {
+  margin: 0;
+  font-size: 80%;
+}

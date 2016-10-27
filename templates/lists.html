@@ -1,0 +1,19 @@
+{% extends 'app.html' %}
+{% load static %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Here is your lists, {{ user.username }}!</h2>
+    {% for list in user.list_set.all %}
+      <div>
+        <a href="/lists/{{ list.id }}">
+          <img src="{% static 'images/like.svg' %}" alt="" height="50" width="50" />
+        </a>
+        <h4>{{ list.name }}</h4>
+      </div>
+    {% endfor %}
+    <a class="create-user" href='add/'>Add list</a>
+  {% else %}
+    <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
+  {% endif %}
+{% endblock %}
