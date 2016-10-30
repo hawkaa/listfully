@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import List, Item
-from .forms import AddItem
+from .forms import AddItem, AddList
 from django.forms import inlineformset_factory
 
 # TODO: add view for editing profile (firstname, lastname, email, profile picture)
@@ -37,5 +37,14 @@ def delete_item(request, list_id, item_id):
     return HttpResponseRedirect('/lists/' + str(list_id))
 
 def add_list(request):
-    # TODO: continue logic. Ensure to fetch user. Redirect to the list created.
-    return HttpResponseRedirect('/lists/')
+    if request.method == 'GET':
+        form = AddList()
+        return render(request, '../templates/add_list.html', {'form': form})
+
+    if request.method == 'POST':
+        form = AddList(request.POST)
+        if form.is_valid():
+            list = form.save(commit=False)
+            list.user = request.user
+            list.save()
+            return HttpResponseRedirect('/lists/')

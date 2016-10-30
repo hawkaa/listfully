@@ -1,0 +1,18 @@
+{% extends 'app.html' %}
+{% load static %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h3>{{ list.name }}</h3>
+    <div class="list-form">
+      <form action="." method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input id="user" name="user" type="hidden" value="{{ user }}">
+        <input type="submit" value="Add list">
+      </form>
+    </div>
+  {% else %}
+    <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
+  {% endif %}
+{% endblock %}
