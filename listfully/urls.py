@@ -21,9 +21,9 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', TemplateView.as_view(template_name='home.html'), name='home'),
-    url(r'^profile/$', TemplateView.as_view(template_name='profile.html'), name='profile')
+    url(r'^profile/$', TemplateView.as_view(template_name='profile.html'), name='profile'),
     url(r'', include('list.urls')),
     url(r'', include('registration.backends.hmac.urls')),
     url(r'', include('django.contrib.auth.urls')),
-    url(r'^$', TemplateView.as_view(template_name='landing_page.html'), name='landing_page')
+    url(r'^$', TemplateView.as_view(template_name='landing_page.html'), name='landing_page'),
 ]
