@@ -15,8 +15,7 @@
 
     {% for item in list.item_set.all %}
       <div class="item">
-        <img class="custom-image" src="{{ MEDIA_ROOT }}/{{ item.image }}" alt="" />
-
+        <img class="custom-image" src="{{MEDIA_URL}}/{{ item.image }}" alt="" />
         <h4 class="name">{{ item.name }}</h4>
 
         <p class="url">
