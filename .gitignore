@@ -8,6 +8,7 @@ __pycache__/
 env/
 build/
 media/
+registration/
 develop-eggs/
 dist/
 downloads/
