@@ -19,4 +19,4 @@ class Item(models.Model):
     description = models.CharField(max_length=100)
     price_range = models.CharField(max_length=20)
     url = models.CharField(max_length=500, default='')
-    image = models.ImageField(upload_to=item_image_path, default='default.svg')
+    image = models.ImageField(upload_to=item_image_path, blank=True)
