@@ -1,27 +1,21 @@
-{% extends "registration/landing_page.html" %}
+{% extends 'landing_page.html' %}
 
-{% block title %}Log in{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-
-<h1>Log in</h1>
-
-{% if form.errors %}
-<p class="error">Please correct the errors below:</p>
-{% endif %}
-
-<form method="post" action="?next={{ next|default:"/" }}">{% csrf_token %}
-<dl>
-<dt><label for="id_username">Username:</label>{% if form.username.errors %} <span class="error">{{ form.username.errors|join:", " }}</span>{% endif %}</dt>
-<dd>{{ form.username }}</dd>
-<dt><label for="id_password">Password:</label>{% if form.password.errors %} <span class="error">{{ form.password.errors|join:", " }}</span>{% endif %}</dt>
-<dd>{{ form.password }}</dd>
-<dt><input type="submit" value="Log in" /></dt>
-</dl>
-</form>
-{% endblock %}
-
-{% block content-related %}
-<p>If you don't have an account, you can <a href="/accounts/register/">sign
-up</a> for one.
+  <div class="row">
+    <div class="login">
+      <h2>Login</h2>
+      {% if user.is_authenticated %}
+        Du er allerede logget inn. Vil du <a href="{% url 'logout' %}">Logge ut?</a>
+      {% else %}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+      <p class="info-small">(Not a user? <a href="">Register</a>)<p>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}
