@@ -22,4 +22,5 @@ class Item(models.Model):
     price_range = models.CharField(max_length=20)
     url = models.CharField(max_length=500, default='')
     image = models.ImageField(upload_to=item_image_path, blank=True)
+    bought = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)

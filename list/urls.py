@@ -9,6 +9,7 @@ from . import views
 
 urlpatterns = [
     url(r'^(?P<share>[a-zA-Z0-9]{32})/$', views.share, name='share'),
+    url(r'^lists/buy/$', views.buy, name='buy'),
     url(r'^lists/(\d+)/delete/(\d+)/$', views.delete_item, name='delete_item'),
     url(r'^lists/(\d+)/$', views.add_item, name='items'),
     url(r'^lists/add/$', views.add_list, name='add_list'),

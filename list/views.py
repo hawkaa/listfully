@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import List, Item
-from .forms import AddItem, AddList
+from .forms import AddItem, AddList, BuyItem
 from django.forms import inlineformset_factory
 from django.utils.crypto import get_random_string
 
@@ -54,6 +54,15 @@ def add_list(request):
             list.share = random_id_32()
             list.save()
             return HttpResponseRedirect('/lists/')
+
+def buy(request):
+    if request.method == 'POST':
+        item_id = request.POST.get('item_id')
+        item = Item.objects.get(pk=item_id)
+        form = BuyItem(request.POST, instance=item)
+        form.save()
+
+        return HttpResponseRedirect('/' + request.POST.get('share'))
 
 def share(request, share):
     if request.method == 'GET':
