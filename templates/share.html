@@ -1,0 +1,43 @@
+{% extends 'app.html' %}
+{% load static %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <p>You sneaky! Do not look at your own lists :) </p>
+  {% endif %}
+
+  <h2>{{ list.user }} has listed in {{ list.name }}:</h2>
+  {% for item in list.item_set.all %}
+    <div class="item">
+      <img class="custom-image" src="{{MEDIA_URL}}/{{ item.image }}" alt="" />
+      <h4 class="name">{{ item.name }}</h4>
+
+      <p class="url">
+        {% if complete_item_url %}
+          <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
+        {% else %}
+          <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
+        {% endif %}
+      </p>
+      <p class="price_range"><b>Price:</b>{{ item.price_range }}</p>
+      <p class="description"><b>Description:</b> {{ item.description }}</p>
+      <a class="delete" href='delete/{{item.id}}/'>Delete</a>
+      <p id="items" value="{{ items }}"></p>
+      <div class="buy-form">
+        <form action="/lists/buy/" method="POST">
+          {% csrf_token %}
+          <input id="bought-{{ item.id }}" name="bought" type="checkbox" {% if item.bought %}checked{% endif %} value="{{ item.bought|yesno:'False,True' }}" />
+          <input id="item_id" name="item_id" type="hidden" value="{{ item.id }}" />
+          <input id="share" name="share" type="hidden" value="{{ list.share }}" />
+          <input id="buy-item-{{ item.id }}" type="Submit" value="Submit" hidden />
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+
+  <script type="text/javascript" charset="ISO-8859-1">
+    $( document ).ready(function() {
+      items.bindForm({{ items }});
+    });
+  </script>
+{% endblock %}

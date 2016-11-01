@@ -11,6 +11,8 @@ class List(models.Model):
     user = models.ForeignKey(auth_user)
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
+    share = models.CharField(max_length=32, unique=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
 
 class Item(models.Model):
     id = models.AutoField(primary_key=True)
@@ -20,3 +22,4 @@ class Item(models.Model):
     price_range = models.CharField(max_length=20)
     url = models.CharField(max_length=500, default='')
     image = models.ImageField(upload_to=item_image_path, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
