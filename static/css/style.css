@@ -1,21 +1,26 @@
 .logo p {
-    font-size: 60px;
-    padding-left: 5%;
+    text-align: center;
+    font-size: 5.5rem;
     color: white;
-    margin: 2%;
+    margin: 3%;
 }
 
 .logo a {
   text-decoration: none;
 }
 
+.user {
+  float: right;
+  padding-top: 3%;
+  padding-right: 3%;
+}
+
 .user a {
-  color: pink;
+  color: black;
 }
 
 .user span {
   color: white;
-  text-align: center;
 }
 
 .landing_page .container {
@@ -33,18 +38,11 @@
   padding: 10px 30px 20px 70px;
   background-color: rgba(255,255,255, 0.55);
   width: 100%;
-  max-width: 100rem;
-  margin-left: 0;
+  margin-top: 5%;
 }
 
-.app .container {
-  width: 100%;
-  max-width: 100rem;
-  height: 200px;
-  background-image: url("../images/cover-camera2.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+.app .header {
+  background-color: #D8D8D8;
 }
 
 .app .content {
