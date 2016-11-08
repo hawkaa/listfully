@@ -41,76 +41,51 @@
   margin-top: 5%;
 }
 
+.app {
+  margin-bottom: 3%;
+}
+
+.app .container {
+  margin-top: 3%;
+}
+
 .app .header {
   background-color: #D8D8D8;
-}
-
-.app .content {
-  width: 100%;
-  max-width: 100rem;
-  margin: 5%;
-}
-
-.user {
-  padding-top: 20px;
-}
-
-.info-small {
-  font-size: 0.8em;
-}
-
-img.profile {
-  float: left;
-}
-.icon-xs {
-  width: 1.5em;
-}
-.icon-small {
-  width: 2.5em;
-}
-.icon-medium {
-  width: 3.5em;
-}
-.icon-large {
-  width: 4.5em;
-}
-.icon-xl {
-  width: 5.5em;
 }
 
 .app div.item {
   margin-top: 15px;
 }
 
-.app .item img.gift-image {
+.app .item .item-image {
   float: left;
-  padding-right: 10px;
-}
-
-.app .item img.custom-image {
-  float: left;
-  padding-right: 10px;
+  padding-right: 1.5%;
+  width: 300px;
+  max-height: 300px;
 }
 
 .app .item h4.name {
   margin: 0;
 }
 
-.app .item p.url {
-  margin: 0;
-  font-size: 80%;
-}
-
 .app .item a.delete {
-  font-size: 70%;
+  font-size: 0.7em;
 }
 
-.app .item p.price_range {
+.app .item p {
   margin: 0;
-  font-size: 80%;
+  font-size: 0.9em;
 }
 
-.app .item p.description {
-  margin: 0;
-  font-size: 80%;
+.app .list-name {
+  text-decoration: underline;
+}
+
+.app .line {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-small {
+  font-size: 0.8em;
 }
