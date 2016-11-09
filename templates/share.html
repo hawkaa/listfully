@@ -6,9 +6,8 @@
   {% for item in list.item_set.all %}
     <div class="row">
       <div class="item">
-        <img class="item-image" src="{{MEDIA_URL}}/{{ item.image }}" alt="" />
+        <img class="item-image" src="{{MEDIA_URL}}{{ item.image }}" alt="" />
         <h4 class="name">{{ item.name }}</h4>
-
         <p class="url">
           {% if complete_item_url %}
             <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
