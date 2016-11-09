@@ -30,8 +30,8 @@ def add_item(request, id):
             item = form.save(commit=False)
             item.list = list
             if 'image' in request.FILES:
-                print(request.FILES)
                 item.image = request.FILES['image']
+
             item.save()
 
             return HttpResponseRedirect('/lists/' + str(list.id))
