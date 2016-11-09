@@ -77,6 +77,10 @@
   font-size: 0.9em;
 }
 
+.app .item .links a {
+  padding-right: 5px;
+}
+
 .app .list-name {
   text-decoration: underline;
 }
