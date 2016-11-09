@@ -11,7 +11,7 @@ class List(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(auth_user)
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=200, blank=True)
     share = models.CharField(max_length=32, unique=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
