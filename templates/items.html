@@ -4,7 +4,13 @@
 {% block content %}
   {% if user.is_authenticated %}
     <h2>{{ list.name }}</h2>
-    <p>Share list: <a href="http://{{ request.get_host }}/{{ list.share }}">{{ request.get_host }}/{{ list.share }}</a></p>
+    <p>
+      <a class="share" target="_blank" href="http://{{ request.get_host }}/{{ list.share }}">
+        <i class="fa fa-link" aria-hidden="true"></i>
+        {{ request.get_host }}/{{ list.share }}
+      </a>
+    </p>
+
     <div class="item-form">
       <form action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %}
