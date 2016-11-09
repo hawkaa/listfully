@@ -43,9 +43,9 @@
             {% endif %}
           </div>
 
-          <p class="price_range"><b>Price:</b>{{ item.price_range }}</p>
+          <p class="price_range"><b>Price:</b> {{ item.price_range }}</p>
           <p class="description"><b>Description:</b> {{ item.description }}</p>
-          <a class="delete" href='delete/{{item.id}}/'>Delete</a>
+          <a class="delete" href='delete/{{item.id}}/'><i class="fa fa-trash" aria-hidden="true"></i></a>
         </div>
       </div>
     {% endfor %}
