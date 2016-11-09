@@ -19,12 +19,13 @@ class Item(models.Model):
     id = models.AutoField(primary_key=True)
     list = models.ForeignKey(List, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
-    price_range = models.CharField(max_length=20)
-    url = models.CharField(max_length=500, default='')
+    description = models.CharField(max_length=100, blank=True)
+    price_range = models.CharField(max_length=20, blank=True)
+    url = models.CharField(max_length=500, blank=True)
     image = models.ImageField(upload_to=item_image_path, blank=True)
     bought = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
+    location = models.CharField(max_length=100, blank=True)
 
     def save(self):
         super(Item, self).save()
