@@ -3,21 +3,21 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <h2>Here is your lists, {{ user.username }}!</h2>
+    <h2>Lists</h2>
 
     {% if not user.list_set.all %}
       <p>You dont have any lists. Create one?</p>
       <a class="create-list" href="{% url 'add_list' %}">Crete your first list!</a>
     {% else %}
       {% for list in user.list_set.all %}
-        <div>
-          <a href="/lists/{{ list.id }}">
-            <img src="{% static 'images/like.svg' %}" alt="" height="50" width="50" />
-          </a>
-          <h4>{{ list.name }}</h4>
-        </div>
+        <h4>
+          - <a class="list" href="/lists/{{ list.id }}">{{ list.name }}</a>
+        </h4>
       {% endfor %}
-      <a class="create-list" href="{% url 'add_list' %}">Add list</a>
+      <a class="create-list" href="{% url 'add_list' %}">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Add list
+      </a>
     {% endif %}
   {% else %}
     <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
