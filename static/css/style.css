@@ -57,6 +57,20 @@
   margin-top: 15px;
 }
 
+.item-form p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.item-form input {
+  min-width: 50%;
+  font-size: 1em;
+}
+
+.item-form label {
+  width: 50px;
+}
+
 .app .item .item-image {
   float: left;
   padding-right: 1.5%;
