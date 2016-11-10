@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'', include('list.urls')),
     url(r'', include('registration.backends.simple.urls')),
     url(r'', include('django.contrib.auth.urls')),
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='landing_page'),
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 ]

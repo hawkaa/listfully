@@ -68,3 +68,6 @@ ENV/
 
 #OSX
 .DS_Store
+
+#Other
+node_modules/

@@ -1,11 +1,31 @@
-{% extends 'landing_page.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-    <h2>Hi, {{ user.username }}!</h2>
-    <p>Take a look at your <a href="{% url 'lists' %}">lists</a></p>
-  {% else %}
-    <h2>Welcome to List!</h2>
-      <p>Start making your drems come true - <a href="{% url 'login' %}">Login</a></p>
-  {% endif %}
+  <div class="home">
+    <div class="row">
+      <div class="box-display">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="margin-5">
+        <h2>Give and get better!</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      {% if user.is_authenticated %}
+        <div class="action-box">
+          <p><a href="{% url 'lists' %}">Get started</a></p>
+        </div>
+      {% else %}
+        <div class="action-box">
+          <p><a href="{% url 'login' %}">Get started</a></p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
 {% endblock%}

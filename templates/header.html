@@ -1,7 +1,7 @@
 {% load static %}
 
-<div class="header">
-  <div class="row">
+<div class="row">
+  <div class="col-md-12	col-lg-12">
     <div class="user">
       {% if user.is_authenticated %}
         <span>
@@ -12,9 +12,18 @@
       {% endif %}
     </div>
   </div>
-  <div class="row">
-    <div class="logo">
-      <a href="{% url 'landing_page' %}"><p>Listfully</p></a>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12	col-lg-12">
+    <h1 class="logo">
+      <a href="{% url 'home' %}">LISTFULLY.</a>
+    </h1>
+    <hr class="logo-underline" />
+    <div class="logo-statements">
+      <P class="statement">List consciously.</p>
+      <p class="statement">List usefully.</p>
+      <p class="statement">List joyously.</p>
     </div>
   </div>
 </div>
