@@ -36,7 +36,7 @@
         {% for item in list.item_set.all %}
           <div class="item">
             {% if item.image %}
-              <img class="item-image" src="{{MEDIA_URL}}{{ item.image }}" alt="" />
+              <img class="item-image" src="{{MEDIA_URL}}{{ item.thumbnail }}" alt="" />
             {% else %}
               <img class="item-image" src="{{MEDIA_URL}}default.jpg" alt="" />
             {% endif %}

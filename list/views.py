@@ -31,6 +31,7 @@ def add_item(request, id):
             item.list = list
             if 'image' in request.FILES:
                 item.image = request.FILES['image']
+                item.thumbnail = request.FILES['image']
 
             item.save()
 

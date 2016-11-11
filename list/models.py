@@ -23,17 +23,24 @@ class Item(models.Model):
     price_range = models.CharField(max_length=20, blank=True)
     url = models.CharField(max_length=500, blank=True)
     image = models.ImageField(upload_to=item_image_path, blank=True)
+    thumbnail = models.ImageField(upload_to=item_image_path, blank=True)
     bought = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     location = models.CharField(max_length=100, blank=True)
 
     def save(self):
-        super(Item, self).save()
-        if self.image:
-            base_width = 300
-            img = Image.open(self.image.path)
-            width, height = img.size
-            width_percent = (base_width/float(width))
-            new_height = int((float(height)*float(width_percent)))
-            img = img.resize((base_width, new_height), Image.ANTIALIAS)
-            img.save(self.image.path)
+          super(Item, self).save()
+          if self.image:
+              base_width = 550
+              img = Image.open(self.image.path)
+              base = Image.new(mode='RGBA',size=(base_width,base_width),color=(255,255,255,0))
+              width, height = img.size
+
+              width_percent = (base_width/float(width))
+              new_height = int((float(height)*float(width_percent)))
+              img = img.resize((base_width, new_height), Image.ANTIALIAS)
+              img.save(self.image.path, 'PNG')
+
+              #Bør kanskje croppe bildet mer før jeg setter det inn?
+              base.paste(img, (0, int((550/2 - img.size[1]/2))))
+              base.save(self.thumbnail.path, 'PNG')
