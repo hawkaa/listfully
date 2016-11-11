@@ -122,10 +122,6 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-div.item {
-  margin-top: 15px;
-}
-
 .item-form input {
   display: block;
   margin-top: 5px;
@@ -148,10 +144,25 @@ input[type='text'] {
   width: 50px;
 }
 
+.item-container {
+  display: table;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.item {
+  vertical-align: top;
+  display: inline-block;
+  width: 25%;
+}
+
+.image-container {}
+
 .item-image {
   float: left;
   padding-right: 1.5%;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   max-height: 300px;
 }
 
