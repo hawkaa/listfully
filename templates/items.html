@@ -14,9 +14,14 @@
     <div class="item-form">
       <form action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <input id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
+        <input id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
+        <input id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
+        <input id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
+        <input id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
+        <input id="id_image" name="image" type="file">
         <input id="user" name="user" type="hidden" value="{{ user }}">
-        <input type="submit" value="Add item">
+        <input class="button" type="submit" value="Add item">
       </form>
     </div>
 

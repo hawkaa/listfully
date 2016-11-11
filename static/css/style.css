@@ -17,6 +17,12 @@ h1, h2, h3, h4 {
   color: #474747;
 }
 
+.button {
+  background-color: white;
+  border: 3px solid #474747;
+  padding: 5px 15px 5px 15px;
+}
+
 .container-fluid {
   padding: 0;
 }
@@ -116,61 +122,61 @@ h1, h2, h3, h4 {
   width: 100%;
 }
 
-.app {
-  margin-bottom: 3%;
-}
-
-.app .container {
-  margin-top: 3%;
-}
-
-.app div.item {
+div.item {
   margin-top: 15px;
 }
 
-.app .item-form p {
+.item-form input {
+  display: block;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.app .item-form input {
-  min-width: 50%;
+input[type='text'] {
+  width: 30%;
+}
+
+.item-form input {
   font-size: 1em;
 }
 
-.app .item-form label {
+.item-form .button {
+  width: 100px;
+}
+
+.item-form label {
   width: 50px;
 }
 
-.app .item .item-image {
+.item-image {
   float: left;
   padding-right: 1.5%;
   width: 300px;
   max-height: 300px;
 }
 
-.app .item h4.name {
+.item h4.name {
   margin: 0;
 }
 
-.app .item a.delete {
+.item a.delete {
   font-size: 1em;
 }
 
-.app .item p {
+.item p {
   margin: 0;
   font-size: 0.9em;
 }
 
-.app .item .links a {
+.item .links a {
   padding-right: 5px;
 }
 
-.app .list-name {
+.list-name {
   text-decoration: underline;
 }
 
-.app .line {
+.line {
   margin-top: 30px;
   margin-bottom: 30px;
 }
