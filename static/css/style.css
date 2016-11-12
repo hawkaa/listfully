@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Garamond';
+  src: url('../fonts/Garamond-Italic.eot');
+  src: url('../fonts/Garamond-Italic.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham Light';
+  src: url('../fonts/Gotham-light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham Medium';
+  src: url('../fonts/Gotham-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url('../fonts/Gotham-Bold.ttf') format('truetype');
+}
+
 .html {
   background-color: #FFFFFF;
   max-width: 100vw;
@@ -15,6 +36,23 @@ p {
 
 h1, h2, h3, h4 {
   color: #474747;
+}
+
+.garamond {
+  font-family: 'Garamond';
+  font-weight: bold;
+}
+
+.gotham-light {
+  font-family: 'Gotham Light';
+}
+
+.gotham-medium {
+  font-family: 'Gotham Medium';
+}
+
+.gotham-bold {
+  font-family: 'Gotham Bold';
 }
 
 .button {
@@ -45,28 +83,29 @@ h1, h2, h3, h4 {
   min-height: 25vh;
 }
 
-.logo {
-  text-align: center;
-  padding: 2%;
-}
+.logo {}
 
-.logo a {
-  color: #474747;
-  text-decoration: none;
+.logo img {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  padding-top: 3%;
+  padding-bottom: 1.5%;
 }
 
 .logo-underline {
   margin: 0 auto;
-  border-top: 2px solid #474747;
-  width: 25%;
+  border-top: 1px solid #474747;
+  width: 35%;
 }
 
 .logo-statements {
   margin: 0 auto;
-  width: 22%;
+  width: 25%;
   text-align: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  font-size: 16px;
 }
 
 .content {
@@ -102,6 +141,8 @@ h1, h2, h3, h4 {
 }
 
 .action-box {
+  font-family: 'Gotham Medium';
+  font-size: 12px;
   margin: 0 auto;
   padding: 0.7%;
   width: 10vw;
@@ -148,6 +189,8 @@ input[type='text'] {
   display: table;
   margin: 0 auto;
   width: 60%;
+  padding-top: 20px;
+  padding-bottom: 10%;
 }
 
 .item {
@@ -156,7 +199,8 @@ input[type='text'] {
   width: 25%;
 }
 
-.image-container {}
+.image-container {
+}
 
 .item-image {
   float: left;
