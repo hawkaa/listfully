@@ -18,13 +18,13 @@
 
     <div class="row">
       {% if user.is_authenticated %}
-        <div class="action-box">
+        <div class="action-box gotham-medium">
           <p>
             <a href="{% url 'lists' %}">GET STARTED</a>
           </p>
         </div>
       {% else %}
-        <div class="action-box">
+        <div class="action-box gotham-medium">
           <p><a href="{% url 'login' %}">GET STARTED</a></p>
         </div>
       {% endif %}

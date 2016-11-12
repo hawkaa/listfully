@@ -36,11 +36,12 @@ class Item(models.Model):
               base = Image.new(mode='RGBA',size=(base_width,base_width),color=(255,255,255,0))
               width, height = img.size
 
+              #SCALE IMAGE
               width_percent = (base_width/float(width))
               new_height = int((float(height)*float(width_percent)))
               img = img.resize((base_width, new_height), Image.ANTIALIAS)
               img.save(self.image.path, 'PNG')
 
-              #Bør kanskje croppe bildet mer før jeg setter det inn?
+              #CROP HORIZONTAL IMAGES MORE?
               base.paste(img, (0, int((550/2 - img.size[1]/2))))
               base.save(self.thumbnail.path, 'PNG')
