@@ -30,3 +30,8 @@
 .underline {
   text-decoration: underline;
 }
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
