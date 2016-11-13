@@ -22,7 +22,7 @@ def add_item(request, id):
 
     if request.method == 'GET':
         form = AddItem()
-        return render(request, '../templates/items.html', {'form': form, 'list': list})
+        return render(request, '../templates/items.html', {'form': form, 'list': list, 'share': False})
 
     if request.method == 'POST':
         form = AddItem(request.POST)
@@ -71,4 +71,4 @@ def share(request, share):
         list = List.objects.get(share=share)
         items = [item.id for item in list.item_set.all().iterator()]
 
-        return render(request, '../templates/share.html', {'form': form, 'list': list, 'items': items})
+        return render(request, '../templates/share.html', {'form': form, 'list': list, 'items': items, 'share': True})

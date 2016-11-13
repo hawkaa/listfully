@@ -1,0 +1,52 @@
+<div class="row item-container">
+  {% for item in list.item_set.all %}
+    <div class="item col-lg-4 col-md-8 col-sm-6 col-xs-6">
+      {% if item.image %}
+        <img class="item-image" src="{{MEDIA_URL}}{{ item.thumbnail }}" alt="" />
+      {% else %}
+        <img class="item-image" src="{{MEDIA_URL}}default.jpg" alt="" />
+      {% endif %}
+      <div class="item-info">
+        <div class="test1">
+          <h4 class="name">{{ item.name }}</h4>
+          <div class="links">
+            {% if item.url %}
+              <p>
+                <i class="fa fa-link"></i>
+                {% if complete_item_url %}
+                  <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
+                {% else %}
+                  <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
+                {% endif %}
+              </p>
+            {% endif %}
+            {% if item.location %}
+              <p>
+                <i class="fa fa-map-marker"></i>
+                <a class="location" target="_blank" href="http://maps.google.com/?q={{ item.location }}">
+                  {{ item.location }}
+                </a>
+              </p>
+            {% endif %}
+          </div>
+          <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
+          <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
+        </div>
+        {% if share %}
+          <div class="buy-form">
+            <form action="/lists/buy/" method="POST">
+              {% csrf_token %}
+              <input name="bought" class="hidden" value="{{ item.bought|yesno:'False,True' }}" />
+              <input id="bought-{{ item.id }}"  type="button" class="button" value="{{ item.bought|yesno:'BOUGHT,BUY' }}" />
+              <input id="item_id" name="item_id" type="hidden" value="{{ item.id }}" />
+              <input id="share" name="share" type="hidden" value="{{ list.share }}" />
+              <input id="buy-item-{{ item.id }}" type="Submit" value="Submit" class="hidden" />
+            </form>
+          </div>
+        {% else %}
+          <a class="delete" href='delete/{{item.id}}/'><i class="fa fa-trash" aria-hidden="true"></i></a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

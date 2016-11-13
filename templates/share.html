@@ -2,47 +2,14 @@
 {% load static %}
 
 {% block content %}
-  <h2>{{ list.user }}'s list <span class="underline">{{ list.name }}</span>:</h2>
-  {% for item in list.item_set.all %}
-    <div class="row">
-      <div class="item">
-        {% if item.image %}
-          <img class="item-image" src="{{MEDIA_URL}}{{ item.image }}" alt="" />
-        {% else %}
-          <img class="item-image" src="{{MEDIA_URL}}default.jpg" alt="" />
-        {% endif %}
-        <h4 class="name">{{ item.name }}</h4>
-        <div class="links">
-          {% if item.url %}
-            <i class="fa fa-link"></i>
-            {% if complete_item_url %}
-              <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
-            {% else %}
-              <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
-            {% endif %}
-          {% endif %}
-          {% if item.location %}
-            <i class="fa fa-map-marker"></i>
-            <a class="location" target="_blank" href="http://maps.google.com/?q={{ item.location }}">
-              {{ item.location }}
-            </a>
-          {% endif %}
-        </div>
-        <p class="price_range"><b>Price:</b> {{ item.price_range }}</p>
-        <p class="description"><b>Description:</b> {{ item.description }}</p>
-        <p id="items" value="{{ items }}"></p>
-        <div class="buy-form">
-          <form action="/lists/buy/" method="POST">
-            {% csrf_token %}
-            <input id="bought-{{ item.id }}" name="bought" type="checkbox" {% if item.bought %}checked{% endif %} value="{{ item.bought|yesno:'False,True' }}" />
-            <input id="item_id" name="item_id" type="hidden" value="{{ item.id }}" />
-            <input id="share" name="share" type="hidden" value="{{ list.share }}" />
-            <input id="buy-item-{{ item.id }}" type="Submit" value="Submit" hidden />
-          </form>
-        </div>
-      </div>
+
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 list-title center">
+      <h2 class="garamond list-name">{{ list.user }}'s list <span class="underline">{{ list.name }}</span>:</h2>
     </div>
-  {% endfor %}
+  </div>
+
+  {% include 'item_list.html' %}
 
   <script type="text/javascript" charset="ISO-8859-1">
     $( document ).ready(function() {
