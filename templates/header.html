@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="row">
-  <div class="col-md-12	col-lg-12">
+  <div>
     <div class="user garamond">
       {% if user.is_authenticated %}
         <span>
@@ -16,13 +16,13 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12	col-lg-12">
-    <div class="logo">
+    <div class="logo center">
       <a href="/">
         <img src="{% static 'images/listfully.png' %}"></img>
       </a>
     </div>
     <hr class="logo-underline" />
-    <div class="logo-statements">
+    <div class="logo-statements no-mobile">
       <P class="statement garamond">List consciously.</p>
       <p class="statement garamond">List usefully.</p>
       <p class="statement garamond">List joyously.</p>

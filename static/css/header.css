@@ -1,0 +1,63 @@
+.user {
+  padding-top: 2%;
+  padding-right: 2%;
+  float: right;
+}
+
+.logo img {
+  width: 20%;
+  padding-top: 3%;
+  padding-bottom: 1.5%;
+}
+
+.logo-underline {
+  margin: 0 auto;
+  border-top: 1px solid #474747;
+  width: 35%;
+}
+
+.logo-statements {
+  margin: 0 auto;
+  width: 30%;
+  text-align: center;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  font-size: 16px;
+}
+
+.statement {
+  display: table;
+  float: left;
+  width: 33.33%;
+}
+
+@media (max-width: 992px) {
+  .logo img {
+    width: 40%;
+  }
+
+  .logo-underline {
+    width: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    padding-top: 10%;
+    width: 50%;
+  }
+
+  .logo-underline {
+    width: 65%;
+  }
+}
+
+@media (max-width: 550px) {
+  .logo img {
+    width: 60%;
+  }
+
+  .logo-underline {
+    width: 75%;
+  }
+}

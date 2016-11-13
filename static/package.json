@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
-    "bootstrap": "^3.3.7"
+    "flexboxgrid": "^6.3.1"
   }
 }

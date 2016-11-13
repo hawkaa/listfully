@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <h2>{{ list.user }}'s list <span class="list-name">{{ list.name }}</span>:</h2>
+  <h2>{{ list.user }}'s list <span class="underline">{{ list.name }}</span>:</h2>
   {% for item in list.item_set.all %}
     <div class="row">
       <div class="item">

@@ -5,37 +5,33 @@
 
   {% if user.is_authenticated %}
     <div class="row">
-      <div class="list-container">
-        <div class="list-title">
-          <h2>{{ list.name }}</h2>
-          <p>
-            <a class="share" target="_blank" href="http://{{ request.get_host }}/{{ list.share }}">
-              <i class="fa fa-link" aria-hidden="true"></i>
-              {{ request.get_host }}/{{ list.share }}
-            </a>
-          </p>
-        </div>
-        <div class="item-form">
-          <form action="." method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
-            <input id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
-            <input id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
-            <input id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
-            <input id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
-            <input id="id_image" name="image" type="file">
-            <input id="user" name="user" type="hidden" value="{{ user }}">
-            <input class="button gotham-medium" type="submit" value="Add item">
-          </form>
-        </div>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 list-title center">
+        <h2 class="garamond list-name">{{ list.name }}</h2>
+        <p class="list-link">
+          <a class="share" target="_blank" href="http://{{ request.get_host }}/{{ list.share }}">
+            <i class="fa fa-link" aria-hidden="true"></i>
+            {{ request.get_host }}/{{ list.share }}
+          </a>
+        </p>
       </div>
-      <hr class="line" />
+      <div class="col-lg-4 col-md-8 col-sm-9 col-xs-10 list-form center">
+        <form action="." method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
+          <input id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
+          <input id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
+          <input id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
+          <input id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
+          <input class="padding-top-2 padding-bottom-2" id="id_image" name="image" type="file">
+          <input id="user" name="user" type="hidden" value="{{ user }}">
+          <input class="button gotham-medium center" type="submit" value="Add item">
+        </form>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="item-container">
+    <div class="row item-container">
         {% for item in list.item_set.all %}
-          <div class="item">
+          <div class="item col-lg-4 col-md-8 col-sm-6 col-xs-6">
             {% if item.image %}
               <img class="item-image" src="{{MEDIA_URL}}{{ item.thumbnail }}" alt="" />
             {% else %}
@@ -44,24 +40,24 @@
             <div class="item-info">
               <h4 class="name">{{ item.name }}</h4>
               <div class="links">
-              </p>
-                  {% if item.url %}
+                {% if item.url %}
+                  <p>
                     <i class="fa fa-link"></i>
                     {% if complete_item_url %}
                       <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
                     {% else %}
                       <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
                     {% endif %}
-                  {% endif %}
-                <p>
-                <p>
-                  {% if item.location %}
+                  </p>
+                {% endif %}
+                {% if item.location %}
+                  <p>
                     <i class="fa fa-map-marker"></i>
                     <a class="location" target="_blank" href="http://maps.google.com/?q={{ item.location }}">
                       {{ item.location }}
                     </a>
-                  {% endif %}
-                </p>
+                  </p>
+                {% endif %}
               </div>
               <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
               <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
@@ -70,7 +66,6 @@
           </div>
         {% endfor %}
       </div>
-    </div>
   {% else %}
     <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
   {% endif %}
