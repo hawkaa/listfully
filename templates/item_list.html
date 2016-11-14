@@ -1,6 +1,6 @@
 <div class="row item-container">
   {% for item in list.item_set.all %}
-    <div class="item col-lg-4 col-md-8 col-sm-6 col-xs-6">
+    <div class="item col-lg-4 col-md-6 col-sm-6 col-xs-12">
       {% if item.image %}
         <img class="item-image" src="{{MEDIA_URL}}{{ item.thumbnail }}" alt="" />
       {% else %}
