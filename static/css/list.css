@@ -50,6 +50,8 @@ input {
 
 .item-info {
   padding-top: 5px;
+  max-width: 300px;
+  overflow-wrap: break-word;
 }
 
 .item-info p {
