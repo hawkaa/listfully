@@ -16,10 +16,6 @@ from .local_settings import *
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = False
-
-ALLOWED_HOSTS = ['listfully.no', 'listfully.com']
-
 SECRET_KEY = 'ai1r-ul9nkzo4$5e&_x=ws#(5%u-u8=o7#7u2l-&z1n^e6*6xd'
 
 # Application definition
