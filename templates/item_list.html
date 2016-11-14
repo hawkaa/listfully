@@ -7,31 +7,30 @@
         <div class="item-image beige"></div>
       {% endif %}
       <div class="item-info">
-        <div class="test1">
-          <h4 class="name">{{ item.name }}</h4>
-          <div class="links">
-            {% if item.url %}
-              <p>
-                <i class="fa fa-link"></i>
-                {% if complete_item_url %}
-                  <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
-                {% else %}
-                  <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
-                {% endif %}
-              </p>
-            {% endif %}
-            {% if item.location %}
-              <p>
-                <i class="fa fa-map-marker"></i>
-                <a class="location" target="_blank" href="http://maps.google.com/?q={{ item.location }}">
-                  {{ item.location }}
-                </a>
-              </p>
-            {% endif %}
-          </div>
-          <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
-          <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
+        <h4 class="name">{{ item.name }}</h4>
+        <div class="links">
+          {% if item.url %}
+            <p>
+              <i class="fa fa-link"></i>
+              {% if complete_item_url %}
+                <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
+              {% else %}
+                <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
+              {% endif %}
+            </p>
+          {% endif %}
+          {% if item.location %}
+            <p>
+              <i class="fa fa-map-marker"></i>
+              <a class="location" target="_blank" href="http://maps.google.com/?q={{ item.location }}">
+                {{ item.location }}
+              </a>
+            </p>
+          {% endif %}
         </div>
+        <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
+        <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
+
         {% if share %}
           <div class="buy-form">
             <form action="/lists/buy/" method="POST">
