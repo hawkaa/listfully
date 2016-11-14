@@ -9,7 +9,6 @@
         <div class="list-form">
           <form action="." method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="hidden" name="csrfmiddlewaretoken" value="IGonQw8m2R9cj9JWWAEGuDBCLCzSjSvMjI7gcAPcCKhKe34KTscVU24O6MWl4F8T">
             <input placeholder="List name" id="id_name" maxlength="100" name="name" type="text" required=""></p>
             <input placeholder="Description" id="id_description" maxlength="200" name="description" type="text"></p>
             <input id="user" name="user" type="hidden" value="{{ user }}">
