@@ -2,17 +2,22 @@
 {% load static %}
 
 {% block content %}
-  {% if user.is_authenticated %}
-    <h3>{{ list.name }}</h3>
-    <div class="list-form">
-      <form action="." method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input id="user" name="user" type="hidden" value="{{ user }}">
-        <input type="submit" value="Add list">
-      </form>
+  <div class="row">
+    <div class="add-list col-lg-10 col-md-10 col-sm-10 col-xs-10">
+      {% if user.is_authenticated %}
+        <h3>{{ list.name }}</h3>
+        <div class="list-form">
+          <form action="." method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="csrfmiddlewaretoken" value="IGonQw8m2R9cj9JWWAEGuDBCLCzSjSvMjI7gcAPcCKhKe34KTscVU24O6MWl4F8T">
+            <input placeholder="List name" id="id_name" maxlength="100" name="name" type="text" required=""></p>
+            <input placeholder="Description" id="id_description" maxlength="200" name="description" type="text"></p>
+            <input id="user" name="user" type="hidden" value="{{ user }}">
+            <input class="button" type="submit" value="ADD LIST">
+          </form>
+        </div>
+      {% else %}
+        <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
+      {% endif %}
     </div>
-  {% else %}
-    <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
-  {% endif %}
+  </div>
 {% endblock %}

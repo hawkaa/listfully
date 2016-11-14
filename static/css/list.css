@@ -74,6 +74,14 @@ input {
   margin: 0 auto;
 }
 
+.add-list {
+  margin: 0 auto;
+}
+
+.list-form {
+  margin: 0 auto;
+}
+
 @media (max-width: 992px) {
   .no-mobile {
     visibility: hidden;
