@@ -82,6 +82,14 @@ input {
   margin: 0 auto;
 }
 
+.login {
+  margin: 0 auto;
+}
+
+.profile {
+  margin: 0 auto;
+}
+
 @media (max-width: 992px) {
   .no-mobile {
     visibility: hidden;
