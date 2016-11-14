@@ -115,4 +115,8 @@ input {
     width: 250px;
     height: 250px;
   }
+
+  .item-info {
+    max-width: 250px;
+  }
 }
