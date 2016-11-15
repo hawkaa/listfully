@@ -1,12 +1,13 @@
 <div class="row item-container">
-  {% for item in list.item_set.all %}
+  {% for item, form in items %}
     <div class="item col-lg-4 col-md-6 col-sm-6 col-xs-12">
       {% if item.image %}
         <img class="item-image" src="{{MEDIA_URL}}{{ item.thumbnail }}" alt="" />
       {% else %}
         <div class="item-image beige"></div>
       {% endif %}
-      <div class="item-info">
+
+      <div class="item-info" id="item-info-{{ item.id }}">
         <h4 class="name">{{ item.name }}</h4>
         <div class="links">
           {% if item.url %}
@@ -40,8 +41,30 @@
           </div>
         {% else %}
           <a class="delete" href='delete/{{item.id}}/'><i class="fa fa-trash" aria-hidden="true"></i></a>
+          <a id="edit-item-{{ item.id }}" href="javascript:void(0)"><i class="fa fa-pencil edit" aria-hidden="true"></i></a>
         {% endif %}
+      </div>
+
+      <div id="edit-form-{{ item.id }}" hidden="">
+        <form action="." method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input value="{{ item.name }}" id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
+          <input value="{{ item.url }}" id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
+          <input value="{{ item.location }}" id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
+          <input value="{{ item.price_range }}" id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
+          <input value="{{ item.description }}" id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
+          <input value="{{ item.id }}" id="id_id" name="id" type="text">
+          <input value="{{ user }}" id="user" name="user" type="hidden">
+          <button class="button full-width" type="submit">SAVE CHANGES</button>
+        </form>
+        <button id="cancel-item-{{ item.id }}" class="button full-width">CANCEL</button>
       </div>
     </div>
   {% endfor %}
 </div>
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    edit.bindForm({{ form_items }});
+  });
+</script>

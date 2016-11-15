@@ -26,10 +26,20 @@ def add_item(request, id):
 
     if request.method == 'GET':
         form = AddItem()
-        return render(request, '../templates/items.html', {'form': form, 'list': list, 'share': False})
+        items = [(item, AddItem(instance=item)) for item in list.item_set.all()]
+        form_items = [item.id for item in list.item_set.all().iterator()]
+        return render(
+            request,
+            '../templates/items.html',
+            {'form': form, 'list': list, 'items': items, 'share': False, 'form_items': form_items })
 
     if request.method == 'POST':
-        form = AddItem(request.POST)
+        if request.POST.get('id'):
+            instance = Item.objects.get(pk=request.POST.get('id'))
+            form = AddItem(request.POST, instance=instance)
+        else:
+            form = AddItem(request.POST)
+
         if form.is_valid():
             item = form.save(commit=False)
             item.list = list
