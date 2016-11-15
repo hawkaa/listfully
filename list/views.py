@@ -16,6 +16,10 @@ def random_id_32():
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
     return get_random_string(length=32, allowed_chars=characters)
 
+def valid_url(url):
+    if url.startswith('http'):
+        return url
+    return 'http://' + url
 
 def add_item(request, id):
     list = List.objects.get(pk=id)
@@ -29,6 +33,8 @@ def add_item(request, id):
         if form.is_valid():
             item = form.save(commit=False)
             item.list = list
+            if item.url:
+                item.url = valid_url(item.url)
             if 'image' in request.FILES:
                 item.image = request.FILES['image']
                 item.thumbnail = request.FILES['image']

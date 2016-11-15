@@ -12,11 +12,7 @@
           {% if item.url %}
             <p>
               <i class="fa fa-link"></i>
-              {% if complete_item_url %}
-                <a class="url" target="_blank" href="{{ item.url|safe }}">{{item.url}}</a>
-              {% else %}
-                <a class="url" target="_blank" href="http://{{ item.url }}">{{item.url}}</a>
-              {% endif %}
+              <a class="url" target="_blank" href="{{ item.url }}">{{item.url}}</a>
             </p>
           {% endif %}
           {% if item.location %}
