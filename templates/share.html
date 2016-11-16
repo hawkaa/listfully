@@ -10,9 +10,9 @@
 
   {% include 'item_list.html' %}
 
-  <script type="text/javascript" charset="ISO-8859-1">
+  <script type="text/javascript">
     $( document ).ready(function() {
-      items.bindForm({{ items }});
+      items.bindForm({{ list_items }});
     });
   </script>
 {% endblock %}

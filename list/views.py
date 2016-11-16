@@ -85,6 +85,11 @@ def share(request, share):
     if request.method == 'GET':
         form = BuyItem()
         list = List.objects.get(share=share)
-        items = [item.id for item in list.item_set.all().iterator()]
+        items = [(item, None) for item in list.item_set.all()]
+        list_items = [item.id for item in list.item_set.all().iterator()]
 
-        return render(request, '../templates/share.html', {'form': form, 'list': list, 'items': items, 'share': True})
+        return render(
+            request,
+            '../templates/share.html',
+            {'list': list, 'items': items, 'share': True, 'list_items': list_items}
+        )
