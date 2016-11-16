@@ -1,7 +1,6 @@
 <div class="row">
   <div class="lists col-lg-10 col-md-10 col-sm-10 col-xs">
     {% if user.is_authenticated %}
-      <h2 class="padding-top-2 padding-bottom-2">Lists</h2>
       {% if not user.list_set.all %}
         <p>You dont have any lists. Create one?</p>
         <a class="create-list" href="{% url 'add_list' %}">Crete your first list!</a>

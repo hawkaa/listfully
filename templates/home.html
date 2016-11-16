@@ -4,6 +4,7 @@
   <div class="home">
     {% if user.is_authenticated %}
       <div class="center">
+        <h2 class="padding-top-2 padding-bottom-2 garamond">Lists</h2>
         {% include 'lists.html' %}
       </div>
     {% else %}

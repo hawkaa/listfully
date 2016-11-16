@@ -2,11 +2,11 @@
 
 {% block content %}
   <div class="row">
-    <div class="profile col-lg-10 col-md-10 col-sm-10 col-xs-10">
+    <div class="profile center col-lg-10 col-md-10 col-sm-10 col-xs-10">
       <div class="padding-top-2">
         {% if user.is_authenticated %}
-          <h2 class="padding-top-2">Hi, {{ user.username }}!</h2>
-          <p class="padding-top-2">Take a look at your <a href="{% url 'lists' %}">lists</a></p>
+          <h2 class="padding-top-2 padding-bottom-2">Hi, {{ user.username }}!</h2>
+          {% include 'lists.html' %}
         {% else %}
           <p>You are not logged in (<a href="{% url 'login' %}">login</a>)</p>
         {% endif %}
