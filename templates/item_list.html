@@ -25,8 +25,12 @@
             </p>
           {% endif %}
         </div>
-        <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
-        <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
+        {% if item.price_range %}
+          <p class="price_range"><b class="gotham-medium">Price:</b> {{ item.price_range }}</p>
+        {% endif %}
+        {% if item.description %}
+          <p class="description"><b class="gotham-medium">Description:</b> {{ item.description }}</p>
+        {% endif %}
 
         {% if share %}
           <div class="buy-form">
