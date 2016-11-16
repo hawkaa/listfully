@@ -2,32 +2,30 @@
 
 {% block content %}
   <div class="home">
-    <div class="row">
-      <div class="box-display">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+    {% if user.is_authenticated %}
+      <div class="center">
+        {% include 'lists.html' %}
       </div>
-    </div>
-
-    <div class="row">
-      <div class="garamond center padding-top-5 padding-bottom-5">
-        <h2>Give and get better!</h2>
-      </div>
-    </div>
-
-    <div class="row">
-      {% if user.is_authenticated %}
-        <div class="center">
-          <p>
-            <a class="button" href="{% url 'lists' %}">GET STARTED</a>
-          </p>
+    {% else %}
+      <div class="row">
+        <div class="box-display">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
         </div>
-      {% else %}
+      </div>
+
+      <div class="row">
+        <div class="garamond center padding-top-5 padding-bottom-5">
+          <h2>Give and get better!</h2>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="button center">
           <p><a href="{% url 'login' %}">GET STARTED</a></p>
         </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
