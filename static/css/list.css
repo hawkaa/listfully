@@ -3,8 +3,8 @@ input {
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 14px;
-  width: 100%;
-  -webkit-appearance: none;
+  width: 99%;
+  max-width: 100%;
 }
 
 .item-form input[type='submit'] {
@@ -111,7 +111,17 @@ input {
   }
 }
 
+@media (max-width: 500px) {
+  input {
+    -webkit-appearance: none;
+  }
+}
+
 @media (max-width: 320px) {
+  .item-container {
+    width: 80%;
+  }
+
   .item-image {
     width: 250px;
     height: 250px;
