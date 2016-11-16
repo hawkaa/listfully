@@ -44,32 +44,40 @@
             </form>
           </div>
         {% else %}
-          <a class="delete" href='delete/{{item.id}}/'><i class="fa fa-trash" aria-hidden="true"></i></a>
-          <a id="edit-item-{{ item.id }}" href="javascript:void(0)"><i class="fa fa-pencil edit" aria-hidden="true"></i></a>
+          <a class="delete" href='delete/{{item.id}}/'>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+          <a id="edit-item-{{ item.id }}" href="javascript:void(0)">
+            <i class="fa fa-pencil edit" aria-hidden="true"></i>
+          </a>
         {% endif %}
       </div>
 
-      <div id="edit-form-{{ item.id }}" hidden="">
-        <form action="." method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          <input value="{{ item.name }}" id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
-          <input value="{{ item.url }}" id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
-          <input value="{{ item.location }}" id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
-          <input value="{{ item.price_range }}" id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
-          <input value="{{ item.description }}" id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
-          <input class="padding-top-2 padding-bottom-2" id="id_image" name="image" type="file">
-          <input value="{{ item.id }}" id="id_id" name="id" type="hidden">
-          <input value="{{ user }}" id="user" name="user" type="hidden">
-          <button class="button full-width" type="submit">SAVE CHANGES</button>
-        </form>
-        <button id="cancel-item-{{ item.id }}" class="button full-width">CANCEL</button>
-      </div>
+      {% if user.is_authenticated and not share %}
+        <div id="edit-form-{{ item.id }}" hidden="">
+          <form action="." method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input value="{{ item.name }}" id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
+            <input value="{{ item.url }}" id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
+            <input value="{{ item.location }}" id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
+            <input value="{{ item.price_range }}" id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
+            <input value="{{ item.description }}" id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
+            <input class="padding-top-2 padding-bottom-2" id="id_image" name="image" type="file">
+            <input value="{{ item.id }}" id="id_id" name="id" type="hidden">
+            <input value="{{ user }}" id="user" name="user" type="hidden">
+            <button class="button full-width" type="submit">SAVE CHANGES</button>
+          </form>
+          <button id="cancel-item-{{ item.id }}" class="button full-width">CANCEL</button>
+        </div>
+      {% endif %}
     </div>
   {% endfor %}
 </div>
 
-<script type="text/javascript">
-  $( document ).ready(function() {
-    edit.bindForm({{ form_items }});
-  });
-</script>
+{% if user.is_authenticated %}
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      edit.bindForm({{ form_items }});
+    });
+  </script>
+{% endif %}

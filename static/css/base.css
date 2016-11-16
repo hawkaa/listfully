@@ -98,7 +98,8 @@ h4 {
 }
 
 .header {
-  height: 25vh;
+  min-height: 25vh;
+  max-height: 25%;
 }
 
 .content {
