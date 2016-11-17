@@ -4,13 +4,13 @@
   <div class="links">
     <p>
       {% if user.is_authenticated %}
-        Hi {{ user.username }}! (<a href="{% url 'logout' %}">logout</a>)
+        <span>{{ user.username }}</span> (<a class="user" href="{% url 'logout' %}">logout</a>)
       {% else %}
         <a href="{% url 'login' %}">login</a>
       {% endif %}
     </p>
-    <p><a href="{% url 'contact' %}">Contact</a></p>
-    <p><a href="{% url 'about' %}">About</a></p>
+    <p><a class="link" href="{% url 'contact' %}">Contact</a></p>
+    <p><a class="link" href="{% url 'about' %}">About</a></p>
   </div>
 </div>
 
