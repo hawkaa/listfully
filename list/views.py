@@ -70,7 +70,7 @@ def add_list(request):
             list.user = request.user
             list.share = random_id_32()
             list.save()
-            return HttpResponseRedirect('/lists/')
+            return HttpResponseRedirect('/')
 
 def buy(request):
     if request.method == 'POST':
