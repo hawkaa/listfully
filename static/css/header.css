@@ -25,21 +25,6 @@
   width: 35%;
 }
 
-.logo-statements {
-  margin: 0 auto;
-  width: 30%;
-  text-align: center;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
-  font-size: 16px;
-}
-
-.statement {
-  display: table;
-  float: left;
-  width: 33.33%;
-}
-
 @media (max-width: 992px) {
   .logo img {
     width: 40%;
