@@ -56,7 +56,11 @@
   height: 100px;
   position: relative;
   font-size: 12px;
+}
 
+.register {
+  margin: 0 auto;
+  padding-top: 2%;
 }
 
 div#diamond {
