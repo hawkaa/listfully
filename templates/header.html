@@ -9,6 +9,9 @@
         <a href="{% url 'login' %}">login</a>
       {% endif %}
     </p>
+    {% if user.is_authenticated %}
+      <p><a class="link" href="{% url 'home' %}">Lists</a></p>
+    {% endif %}
     <p class="hidden"><a class="link" href="{% url 'contact' %}">Contact</a></p>
     <p class="hidden"><a class="link" href="{% url 'about' %}">About</a></p>
   </div>
