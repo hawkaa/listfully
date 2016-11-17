@@ -1,14 +1,18 @@
 <div class="row">
-  <div class="lists col-lg-10 col-md-10 col-sm-10 col-xs">
+  <div class="lists col-lg-7 col-md-7 col-sm-10 col-xs-10">
     {% if user.is_authenticated %}
       {% if not user.list_set.all %}
         <p>You dont have any lists. Create one?</p>
         <a class="create-list" href="{% url 'add_list' %}">Crete your first list!</a>
       {% else %}
         {% for list in user.list_set.all %}
-          <h4>
-            - <a class="list" href="/lists/{{ list.id }}">{{ list.name }}</a>
-          </h4>
+          <a class="list" href="/lists/{{ list.id }}">
+            <div class="list-item">
+              <div class="list-box">
+                {{ list.name }}
+              </div>
+            </div>
+          </a>
         {% endfor %}
         <div class="padding-top-5 padding-bottom-5">
           <a class="create-list button" href="{% url 'add_list' %}">
