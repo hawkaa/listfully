@@ -98,8 +98,7 @@ h4 {
 }
 
 .header {
-  min-height: 25vh;
-  max-height: 25%;
+  min-height: 30vh;
 }
 
 .content {
@@ -109,7 +108,7 @@ h4 {
 
 .footer {
   background-color: #EFEBEA;
-  min-height: 15vh;
+  min-height: 10vh;
   width: 100%;
 }
 
