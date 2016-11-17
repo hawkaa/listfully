@@ -1,7 +1,16 @@
-.user {
-  padding-top: 2%;
-  padding-right: 2%;
+.links {
+  width: 100%;
+}
+
+.links p {
+  padding-top: 1.5vw;
+  padding-right: 1.5vw;
+  display: inline-block;
   float: right;
+}
+
+.links a {
+  text-decoration: none;
 }
 
 .logo img {
