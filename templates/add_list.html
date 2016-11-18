@@ -14,6 +14,11 @@
             <input id="user" name="user" type="hidden" value="{{ user }}">
             <button class="button full-width" type="submit">ADD LIST</button>
           </form>
+          <div class="padding-top-1">
+            <a class="cancel" href="/">
+              <div class="button center">CANCEL</div>
+            </a>
+          </div>
         </div>
       {% else %}
         <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
