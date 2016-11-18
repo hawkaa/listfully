@@ -12,9 +12,9 @@ from django.utils.crypto import get_random_string
 def complete_url(url):
     return url.startswith('http')
 
-def random_id_32():
+def random_id_20():
     characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'
-    return get_random_string(length=32, allowed_chars=characters)
+    return get_random_string(length=20, allowed_chars=characters)
 
 def valid_url(url):
     if url.startswith('http'):
@@ -68,7 +68,7 @@ def add_list(request):
         if form.is_valid():
             list = form.save(commit=False)
             list.user = request.user
-            list.share = random_id_32()
+            list.share = random_id_20()
             list.save()
             return HttpResponseRedirect('/')
 
