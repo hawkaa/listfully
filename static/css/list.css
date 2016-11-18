@@ -99,17 +99,10 @@ input {
 }
 
 .list-item {
-  width: 200px;
-  height: 200px;
-  background-color: #EFEBEA;
   display: inline-table;
-  margin-bottom: 30px;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-.lists {
-  margin-bottom: 5%;
+  padding-bottom: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .lists a {
@@ -118,7 +111,9 @@ input {
 }
 
 .list-box {
-  padding-top: 40%;
+  width: 200px;
+  height: 200px;
+  background-color: #EFEBEA;
   font-family: "Garamond";
   font-size: 20px;
 }
@@ -155,6 +150,11 @@ input {
 @media (max-width: 320px) {
   .item-container {
     width: 80%;
+  }
+
+  .list-box {
+    width: 180px;
+    height: 180px;
   }
 
   .item-image {
