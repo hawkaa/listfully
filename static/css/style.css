@@ -63,6 +63,10 @@
   padding-top: 2%;
 }
 
+.start {
+  padding: 17px 20px 17px 20px;
+}
+
 div#diamond {
   margin:0 auto;
   margin-top: -35px;
