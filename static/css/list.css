@@ -118,14 +118,22 @@ input {
   font-size: 20px;
 }
 
-.list-item:hover {
+.list-box:hover {
   cursor: pointer;
   background-color: #474747;
   color: white;
 }
 
+.list-box:hover p {
+  color: white;
+}
+
 .cancel {
   text-decoration: none;
+}
+
+.item-list-name {
+  padding-top: 40%;
 }
 
 @media (max-width: 992px) {
