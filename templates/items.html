@@ -8,10 +8,13 @@
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 list-title center">
         <h2 class="garamond list-name">{{ list.name }}</h2>
         <p class="list-link">
-          <a class="share" target="_blank" href="http://{{ request.get_host }}/{{ list.share }}">
+          <p class="bold">
             <i class="fa fa-link" aria-hidden="true"></i>
-            {{ request.get_host }}/{{ list.share }}
-          </a>
+            Share:
+            <a class="share" target="_blank" href="http://{{ request.get_host }}/{{ list.share }}">
+               {{ request.get_host }}/{{ list.share }}
+            </a>
+          </p>
         </p>
       </div>
       <div class="col-lg-4 col-md-8 col-sm-9 col-xs-10 list-form center">
