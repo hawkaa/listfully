@@ -144,6 +144,9 @@ input {
 }
 
 @media (max-width: 500px) {
+  .list-form {
+    width: 80%;
+  }
   input {
     -webkit-appearance: none;
   }
