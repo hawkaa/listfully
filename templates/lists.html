@@ -2,8 +2,12 @@
   <div class="lists col-lg-7 col-md-7 col-sm-10 col-xs-10">
     {% if user.is_authenticated %}
       {% if not user.list_set.all %}
-        <p>You dont have any lists. Create one?</p>
-        <a class="create-list" href="{% url 'add_list' %}">Create your first list!</a>
+        <div class="row padding-top-5">
+          <p class="center">You don't have any lists yet. Create one?</p>
+        </div>
+        <div class="row padding-top-10">
+          <a class="create-list button center" href="{% url 'add_list' %}">CREATE YOUR FIRST LIST</a>
+        </div>
       {% else %}
         {% for list in user.list_set.all %}
           <a class="list" href="/lists/{{ list.id }}">
