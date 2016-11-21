@@ -41,8 +41,13 @@
       </div>
 
       <div class="row">
-        <div class="start button center">
-          <p><a href="{% url 'login' %}">LOG IN</a></p>
+        <div class="home-buttons center">
+          <div class="button start">
+            <a class="" href="{% url 'login' %}">LOG IN</a>
+          </div>
+          <div class="button start">
+            <a class="" href="/register">REGISTER</a>
+          </div>
         </div>
       </div>
     {% endif %}

@@ -67,6 +67,14 @@
   padding: 17px 20px 17px 20px;
 }
 
+.home-buttons {
+  display: flex;
+}
+
+.home-buttons .button {
+  margin: 10px;
+}
+
 .introduction {
   width: 50%;
 }
