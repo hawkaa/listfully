@@ -67,6 +67,14 @@
   padding: 17px 20px 17px 20px;
 }
 
+.introduction {
+  width: 50%;
+}
+
+.introduction .garamond {
+  font-size: 20px;
+}
+
 div#diamond {
   margin:0 auto;
   margin-top: -35px;
@@ -90,4 +98,20 @@ div#diamond {
 	height: 0;
 	border: 32px solid transparent;
 	border-top-color: #474747;
+}
+
+@media (max-width: 992px) {
+  .introduction {
+    width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .introduction {
+    width: 85%;
+    font-size: 14px;
+  }
+  .introduction .garamond {
+    font-size: 16px;
+  }
 }
