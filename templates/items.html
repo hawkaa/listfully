@@ -20,11 +20,11 @@
       <div class="col-lg-4 col-md-8 col-sm-9 col-xs-10 list-form center">
         <form action="." method="POST" enctype="multipart/form-data">
           {% csrf_token %}
-          <input id="id_name" placeholder="Name" maxlength="50" name="name" type="text" required="">
-          <input id="id_url" placeholder="Url" maxlength="500" name="url" type="text">
-          <input id="id_location" placeholder="Location" maxlength="100" name="location" type="text">
-          <input id="id_price_range" placeholder="Price" maxlength="20" name="price_range" type="text">
-          <input id="id_description" placeholder="Details" maxlength="100" name="description" type="text">
+          <input id="id_name" placeholder="Name – what do you want to add?" maxlength="50" name="name" type="text" required="">
+          <input id="id_url" placeholder="Link - can they find it online?" maxlength="500" name="url" type="text">
+          <input id="id_location" placeholder="Location – can they find it somewhere?" maxlength="100" name="location" type="text">
+          <input id="id_price_range" placeholder="Price – what does it cost? (approximate) " maxlength="20" name="price_range" type="text">
+          <input id="id_description" placeholder="Comment - i.e brand, color and size" maxlength="100" name="description" type="text">
           <input class="padding-top-2 padding-bottom-2" id="id_image" name="image" type="file">
           <input id="user" name="user" type="hidden" value="{{ user }}">
           <button class="button full-width" type="submit">ADD ITEM</button>
