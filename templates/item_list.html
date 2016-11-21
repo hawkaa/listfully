@@ -37,7 +37,7 @@
             <form action="/lists/buy/" method="POST">
               {% csrf_token %}
               <input name="bought" class="hidden" value="{{ item.bought|yesno:'False,True' }}" />
-              <input id="bought-{{ item.id }}"  type="button" class="button" value="{{ item.bought|yesno:'BOUGHT,BUY' }}" />
+              <input id="bought-{{ item.id }}"  type="button" class="button" value="{{ item.bought|yesno:'-- RESERVED --, RESERVE TO BUY' }}" />
               <input id="item_id" name="item_id" type="hidden" value="{{ item.id }}" />
               <input id="share" name="share" type="hidden" value="{{ list.share }}" />
               <input id="buy-item-{{ item.id }}" type="Submit" value="Submit" class="hidden" />
