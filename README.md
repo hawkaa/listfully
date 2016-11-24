@@ -18,11 +18,19 @@ DATABASES = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
 ACCOUNT_ACTIVATION_DAYS = 5
+
 REGISTRATION_OPEN = True
+
 REGISTRATION_SALT = ''
+
 SECRET_KEY = ''
+
 DEBUG=True
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
+
 ALLOWED_HOSTS=[]
