@@ -29,10 +29,35 @@
           <input id="user" name="user" type="hidden" value="{{ user }}">
           <button class="button full-width" type="submit">ADD ITEM</button>
         </form>
+        <input class="product url input" placeholder="Product URL" type="text" >
+        <button class="product url submit button full-width">GET ITEM INFO FROM LINK</button>
       </div>
     </div>
     {% include 'item_list.html' %}
   {% else %}
     <p>Du er ikke logget inn (<a href="{% url 'login' %}">login</a>)</p>
   {% endif %}
+  <script>
+      $('.product.url.submit').click(function() {
+          var url = $('.product.url.input').val();
+          $.get({
+              url: 'http://api.diffbot.com/v3/product',
+              data: {
+                  url: url,
+                  token: 'f09ac558911c7ae07146caae219dfb4a',
+                  fields: 'pageUrl,title,regularPrice,images'
+              },
+              dataType: 'json'
+          }).then(function(response) {
+              if (response.objects.length < 1) {
+                  alert('Could not find any product information');
+                  return;
+              }
+              var product = response.objects[0];
+              $('#id_name').val(product.title);
+              $('#id_url').val(product.pageUrl);
+              $('#id_price_range').val(product.regularPrice);
+          });
+      });
+  </script>
 {% endblock %}
