@@ -1,10 +1,8 @@
 # listfully
 Listfully
 
-
-import os
-
 # local_settings.py
+import os
 
 DATABASES = {
     'default': {
